@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\MediaGallerySynchronization\Model\FetchMediaStorageFileBatches">
+        <arguments>
+            <argument name="fileExtensions" xsi:type="array">
+                <item name="pdf" xsi:type="string">pdf</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\MediaGalleryUi\Ui\Component\Listing\Columns\Url">
+        <plugin name="wysiwyg_downloads"
+                type="Team23\WysiwygDownloads\Plugin\MediaGalleryUi\Ui\Component\Listing\Columns\Url\ShowPdf"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+
+    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+        <plugin name="wysiwyg_downloads_allow_file_extensions"
+                type="Team23\WysiwygDownloads\Plugin\Cms\Model\Wysiwyg\Images\Storage\AllowExtensions"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+
+    <type name="Magento\MediaGallery\Model\ResourceModel\SaveAssets">
+        <plugin name="wysiwyg_downloads_content_type"
+                type="Team23\WysiwygDownloads\Plugin\MediaGallery\Model\ResourceModel\SaveAssets\ContentType"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+</config>
